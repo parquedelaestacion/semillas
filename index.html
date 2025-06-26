@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Redirecting...</title>
+  <script>
+    async function redirect() {
+      try {
+        const res = await fetch('link.txt');
+        const url = (await res.text()).trim();
+        if (url && url.startsWith('http')) {
+          window.location.href = url;
+        } else {
+          document.body.innerHTML = '<h1>Post not available yet</h1>';
+        }
+      } catch {
+        document.body.innerHTML = '<h1>Post not available yet</h1>';
+      }
+    }
+    window.onload = redirect;
+  </script>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      padding-top: 20vh;
+    }
+  </style>
+</head>
+<body></body>
+</html>
