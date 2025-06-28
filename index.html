@@ -5,16 +5,19 @@
   <title>Redirecting...</title>
   <script>
     async function redirect() {
+      const defaultUrl = '/semillas/post.html';
       try {
-        const res = await fetch('url.txt');
+        
+        const res = await fetch('url.txt?t=' + new Date().getTime());
         const url = (await res.text()).trim();
+        
         if (url && url.startsWith('http')) {
           window.location.href = url;
         } else {
-          window.location.href = '/post.html';
+          window.location.href = defaultUrl;
         }
       } catch {
-         window.location.href = '/post.html';
+         window.location.href = defaultUrl;
       }
     }
     window.onload = redirect;
