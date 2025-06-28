@@ -6,7 +6,7 @@
   <script>
     async function redirect() {
       try {
-        const res = await fetch('link.txt');
+        const res = await fetch('url.txt');
         const url = (await res.text()).trim();
         if (url && url.startsWith('http')) {
           window.location.href = url;
