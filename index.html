@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <title>Redirecting...</title>
   <script>
-console.log("test");
     async function redirect() {
       try {
         const res = await fetch('link.txt');
@@ -12,10 +11,10 @@ console.log("test");
         if (url && url.startsWith('http')) {
           window.location.href = url;
         } else {
-          document.body.innerHTML = '<h1>Post not available yet</h1>';
+          window.location.href = '/post.html';
         }
       } catch {
-        document.body.innerHTML = '<h1>Post not available yet</h1>';
+         window.location.href = '/post.html';
       }
     }
     window.onload = redirect;
